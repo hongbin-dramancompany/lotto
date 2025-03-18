@@ -5,6 +5,10 @@ fun main() {
     println("로또 몇 장을 사실건가요? (최대 10장):")
     val numberOfTickets = scanner.nextInt()
 
+    processLottoTickets(numberOfTickets)
+}
+
+fun processLottoTickets(numberOfTickets: Int) {
     if (numberOfTickets in 1..10) {
         // 입력받은 횟수는 고정값이므로 repeat 함수를 사용하여 반복
         repeat(numberOfTickets) {
