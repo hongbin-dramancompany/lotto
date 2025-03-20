@@ -9,7 +9,11 @@ fun main() {
     if (selectMode) {
         lottoNumbers = LottoGenerator().generate(lottoCount)
     } else {
-        lottoNumbers = LottoGenerator().generate(lottoCount)
+        val manualNumbers = mutableListOf<List<Int>>()
+        repeat(lottoCount) {
+            manualNumbers.add(ManualLottoInput().inputNumber())
+        }
+        lottoNumbers = manualNumbers
     }
 
     consoleUI.printLottoNumbers(lottoNumbers)
