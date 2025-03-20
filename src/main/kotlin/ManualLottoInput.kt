@@ -31,7 +31,7 @@ class ManualLottoInput {
         return winningNumbers
     }
 
-    private fun validateLottoNumbers(input: String): List<Int>? {
+    internal fun validateLottoNumbers(input: String): List<Int>? {
         return try {
             val numbers = input.split(" ").map { it.toInt() }
             if (numbers.size == 5 && numbers.toSet().size == 5 && numbers.all { it in 1..45 }) numbers else null
@@ -40,7 +40,7 @@ class ManualLottoInput {
         }
     }
 
-    private fun validateBonusBall(input: String, winningNumbers: List<Int>): Int? {
+    internal fun validateBonusBall(input: String, winningNumbers: List<Int>): Int? {
         return try {
             val bonusBall = input.toInt()
             if (bonusBall in 1..45 && !winningNumbers.contains(bonusBall)) bonusBall else null
