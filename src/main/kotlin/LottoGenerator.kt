@@ -1,5 +1,3 @@
-package kotlin
-
 class LottoGenerator {
     fun generate(count: Int): List<List<Int>> {
         val results = mutableListOf<List<Int>>()
