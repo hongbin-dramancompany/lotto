@@ -3,10 +3,14 @@ fun main() {
     val lottoCount = consoleUI.getLottoCount()
     println("로또 번호를 $lottoCount 개 생성합니다.")
 
-    val lottoGenerator = LottoGenerator()
-    val lottoNumbers = lottoGenerator.generate(lottoCount)
+    val selectMode = consoleUI.selectInputMode()
+    val lottoNumbers: List<List<Int>>
 
-    lottoNumbers.forEachIndexed { index, numbers ->
-        println("티켓 ${index + 1}: ${numbers.joinToString(" ")}")
+    if (selectMode) {
+        lottoNumbers = LottoGenerator().generate(lottoCount)
+    } else {
+        lottoNumbers = LottoGenerator().generate(lottoCount)
     }
+
+    consoleUI.printLottoNumbers(lottoNumbers)
 }
