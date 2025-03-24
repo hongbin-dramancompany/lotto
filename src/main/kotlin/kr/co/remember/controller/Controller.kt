@@ -35,7 +35,10 @@ private fun writeLotto(): Lotto {
         .mapNotNull { it.trim().toIntOrNull() }
         .map { LottoNumber.of(it) }
 
-    return Lotto(numbers)
+    println("보너스 번호를 입력해주세요.")
+    val bonusNumber = LottoNumber(scanner.nextInt())
+
+    return Lotto(numbers, bonusNumber)
 }
     private fun printAutoLottos(lottos: List<LottoTicket>) {
         println("구매한 자동 로또")
